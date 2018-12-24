@@ -21,9 +21,9 @@
     "typescript": "~3.2.1"
   },
   "scripts": {
-    "postinstall": "echo '**' && && npm run build",
+    "postinstall": "echo '*postinstall*'  &&  npm run build",
     "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.release.json && echo '-- ---- -------- ---------- --------' ",
+    "build": "tsc -p tsconfig.release.json && echo '**build**' ",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "serve": "node build/src/main.js",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
