@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Some predefined delays (in milliseconds).
  */
@@ -36,4 +38,3 @@ greeter("------------").then( (a:string)=>{
   console.log(a)
 })
 
-// LY985451032CN -> UB664763418YP
