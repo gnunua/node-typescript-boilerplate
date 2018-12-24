@@ -31,3 +31,9 @@ export async function greeter(name) {
   // tslint:disable-next-line no-unsafe-any no-return-await
   return await delayedHello(name, Delays.Long);
 }
+
+greeter("------------").then( (a:string)=>{
+  console.log(a)
+})
+
+// LY985451032CN -> UB664763418YP
