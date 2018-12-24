@@ -1,1 +1,1 @@
-web: ./build/src/main.js
+web: ./dist/main.js

@@ -21,18 +21,18 @@
     "typescript": "~3.2.1"
   },
   "scripts": {
-    "postinstall": "echo '*postinstall*'  &&  npm run build",
+    "postinstall": "npm run build",
     "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.release.json && echo '**build**' ",
+    "build": "tsc -p tsconfig.json && echo '**build**' ",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "serve": "node build/src/main.js",
-    "lint": "tslint -t stylish --project \"tsconfig.json\"",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "lint": "tslint -t stylish --project \"tsconfig.json\""
   },
-  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
+  "author": "koreez",
   "license": "Apache-2.0",
   "dependencies": {
+    "@types/express": "^4.16.0",
+    "express": "^4.16.4",
     "tslib": "~1.9.3"
   }
 }
