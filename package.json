@@ -17,7 +17,6 @@
     "npm": "6.x"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "clean": "rimraf coverage build tmp",
     "start": "npm run serve",
     "start-heroku": "npm run build && npm run watch-debug-heroku",

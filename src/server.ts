@@ -12,4 +12,6 @@ app.get('/2', (req, res) => {
   return res.send('2');
 });
 
+//  "postinstall": "npm run build",
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
