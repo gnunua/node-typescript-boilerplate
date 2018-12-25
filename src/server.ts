@@ -2,13 +2,14 @@ import express from 'express';
 const app = express();
 const port = 7878;
 
-let a = 9;
-a = 8;
+app.get('/', (req, res) => {
+  console.log('1');
+  return res.send('1');
+});
 
-console.warn(a);
-console.log('--99-');
-console.log(process.env.PORT);
-
-app.get('/', (req, res) => res.send(''));
+app.get('/2', (req, res) => {
+  console.log('2');
+  return res.send('2');
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
