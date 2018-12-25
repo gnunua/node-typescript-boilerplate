@@ -1,38 +1,57 @@
 {
-  "name": "node-typescript-boilerplate",
+  "name": "tower-backed",
+  "author": "Koreez LLC <hello@koreez.com>",
+  "description": "tower game backed",
   "version": "0.0.1",
-  "description": "node typescript app",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "issues": {
+    "url": ""
+  },
   "engines": {
     "node": "10.x",
     "npm": "6.x"
   },
-  "main": "build/src/main.js",
-  "devDependencies": {
-    "@types/jest": "^23.3.10",
-    "@types/node": "^10",
-    "jest": "~23.6.0",
-    "prettier": "1.15.3",
-    "rimraf": "~2.6.2",
-    "ts-jest": "~23.10.5",
-    "tslint": "~5.11.0",
-    "tslint-config-prettier": "1.17.0",
-    "tslint-microsoft-contrib": "~6.0.0",
-    "tsutils": "~3.5.2",
-    "typescript": "~3.2.1"
-  },
   "scripts": {
     "postinstall": "npm run build",
     "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.json && echo '**build**' ",
-    "build:watch": "tsc -w -p tsconfig.release.json",
-    "serve": "node build/src/main.js",
-    "lint": "tslint -t stylish --project \"tsconfig.json\""
+    "start": "npm run serve",
+    "build": "npm run build-ts && npm run tslint",
+    "serve": "node dist/server.js",
+    "watch-node": "nodemon dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
-  "author": "koreez",
-  "license": "Apache-2.0",
   "dependencies": {
-    "@types/express": "^4.16.0",
     "express": "^4.16.4",
-    "tslib": "~1.9.3"
+    "dotenv": "^4.0.0",
+    "tslib": "^1.9.3",
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10",
+    "@types/dotenv": "^4.0.2",
+    "@types/async": "^2.0.45",
+    "@types/body-parser": "^1.16.8",
+    "nodemon": "^1.13.0",
+    "ts-node": "^5.0.0",
+    "prettier": "^1.15.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tsutils": "^3.5.2",
+    "typescript": "^3.2.2"
   }
 }
