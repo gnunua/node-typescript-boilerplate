@@ -33,7 +33,6 @@ coverage
 
 # Transpiled files
 build/
-dist/
 
 # VS Code
 !.vscode/settings.json
